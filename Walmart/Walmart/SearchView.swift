@@ -14,7 +14,9 @@ struct SearchView: View {
         VStack {
             ToolBarView(currentText: $currentText, vm: vm)
                 .padding(.bottom, -8)
-            if vm.lastSearchTerm == "" {
+            if vm.errorMessage != "" {
+                Text(vm.errorMessage)
+            } else if vm.lastSearchTerm == "" {
                 EnterSearchView()
             } else if vm.numProducts == 0 {
                 ResultsNotFoundView()
@@ -67,6 +69,7 @@ struct ToolBarView: View {
                 // search bar itself
                 HStack {
                     Image(systemName: "magnifyingglass")
+                        .padding(.leading, 4)
                     TextField(text: $currentText) {
                         Text("Search Walmart")
                     }.onSubmit {
@@ -78,27 +81,29 @@ struct ToolBarView: View {
                     .opacity(0.7)
                     Spacer()
                     Image(systemName: "barcode.viewfinder")
-                }.padding(8).background(Color(UIColor.systemBackground))
+                        .font(.title2)
+                        .padding(.vertical, -4)
+                        
+                }.padding(10).background(Color(UIColor.systemBackground))
                     .clipShape(RoundedRectangle(cornerRadius: 25.0))
                 Spacer()
 
                 CartView(vm:vm.cartViewModel)
 
-
             }.padding()
             HStack {
-                Image("phonehandimage")
+                Image(decorative: "phonehandimage")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 25)
+                    .frame(height: 27)
                 Text("How do you want your items? | 95829")
-                    .opacity(0.8)
+                    .opacity(0.9)
                     .font(.headline)
+                    .fontWeight(.light)
                 Spacer()
                 Image(systemName: "chevron.down")
             }
-            .padding(.horizontal
-            )
+            .padding(.horizontal)
             .padding(.bottom, 8).foregroundStyle(Color.white)
         }.background(Color.blue)
     }
@@ -117,8 +122,9 @@ private struct EnterSearchView: View {
                 .scaledToFit()
                 .frame(width: 100)
                 .padding()
+                .accessibility(hidden: true)
             Spacer()
-        }
+        }.padding()
     }
 }
 
@@ -131,13 +137,13 @@ private struct ResultsNotFoundView: View {
                 .font(.title)
                 .multilineTextAlignment(.center)
             Spacer()
-        }
+        }.padding()
     }
 }
 
 
 #Preview {
-    SearchView(vm: SearchViewModel(cartViewModel: CartViewModel()))
+    SearchView(vm: SearchViewModel(cartViewModel: CartViewModel(), favoriteViewModel: FavoriteViewModel()))
 }
 
 

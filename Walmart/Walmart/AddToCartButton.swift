@@ -36,7 +36,7 @@ struct AddToCartButton: View {
                         Text("Add to cart")
                         Spacer()
                     }
-                }
+                }.accessibilityHint("Adds" + product.title + " to cart.")
             } else {
                 HStack {
                     Button {
@@ -45,7 +45,8 @@ struct AddToCartButton: View {
                         }
                     } label: {
                         Image(systemName: "minus.circle.fill")
-                    }
+                            
+                    }.accessibilityHint("Removes" + product.title + "from cart.")
                     Spacer()
                     Text(String(vm.getProductQuantity(product: product)))
                     Spacer()
@@ -53,7 +54,7 @@ struct AddToCartButton: View {
                         vm.addToCart(product: product)
                     } label: {
                         Image(systemName: "plus.circle.fill")
-                    }
+                    }.accessibilityHint("Adds" + product.title + " to cart.")
                 }
             }
 

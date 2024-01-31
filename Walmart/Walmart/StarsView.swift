@@ -26,24 +26,25 @@ struct StarsView: View {
 
     var body: some View {
         HStack {
-            Image(systemName: getStarImage(numStar: 1, rating: product.rating))
-                .padding(.trailing, -8)
-            Image(systemName: getStarImage(numStar: 2, rating: product.rating))
-                .padding(.trailing, -8)
-            Image(systemName: getStarImage(numStar: 3, rating: product.rating))
-                .padding(.trailing, -8)
-            Image(systemName: getStarImage(numStar: 4, rating: product.rating))
-                .padding(.trailing, -8)
-            Image(systemName: getStarImage(numStar: 5, rating: product.rating))
+            HStack {
+                Image(systemName: getStarImage(numStar: 1, rating: product.rating))
+                    .padding(.trailing, -8)
+                Image(systemName: getStarImage(numStar: 2, rating: product.rating))
+                    .padding(.trailing, -8)
+                Image(systemName: getStarImage(numStar: 3, rating: product.rating))
+                    .padding(.trailing, -8)
+                Image(systemName: getStarImage(numStar: 4, rating: product.rating))
+                    .padding(.trailing, -8)
+                Image(systemName: getStarImage(numStar: 5, rating: product.rating))
+            }.foregroundStyle(Color.yellow)
 
             Text(String(product.rating))
-                .foregroundStyle(Color.black)
-            
-        }.foregroundStyle(Color.yellow)
-            .font(.caption)
+        }
+        .font(.caption)
+        .accessibilityHidden(true)
+        .accessibilityLabel("Rated" + String(product.rating) + "out of 5 stars.")
     }
 }
-
 
 #Preview {
     StarsView(product: Product.example)

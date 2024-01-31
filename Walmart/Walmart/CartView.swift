@@ -14,33 +14,36 @@ struct CartView: View {
         Button {
             isSheetPresented.toggle()
         } label: {
-            VStack {
-                ZStack {
-                    Image(systemName: "cart")
+            HStack {
+                
+                VStack(spacing: 0) {
+                    ZStack {
+                        Image(systemName: "cart")
+                            .foregroundStyle(Color.white)
+                            .font(.title2)
+                        Text("\(vm.cartSize)")
+                            .bold()
+                            .font(.caption)
+                            .foregroundStyle(Color.black)
+                            .padding(6)
+                            .background(Circle()
+                                .strokeBorder()
+                                .foregroundStyle(Color.black).background(Color.yellow).clipShape(Circle()))
+                            .offset(CGSize(width: 10.0, height: -10.0))
+                    }
+                    Text("$" + String(format: "%.2f", vm.cartPrice))
                         .foregroundStyle(Color.white)
-                        .font(.title3)
-                    Text("\(vm.cartSize)")
-                        .bold()
                         .font(.caption)
-                        .foregroundStyle(Color.black)
-                        .padding(5)
-                        .background(Circle()
-                            .strokeBorder()
-                            .foregroundStyle(Color.black).background(Color.yellow).clipShape(Circle()))
-                        .offset(CGSize(width: 10.0, height: -10.0))
+                        .lineLimit(1)
                 }
-                Text("$" + String(format: "%.2f", vm.cartPrice))
-                    .foregroundStyle(Color.white)
-                    .font(.caption)
-                    .lineLimit(1)
             }
-        }.frame(width: 50)
+        }.accessibilityHint("Opens a sheet to checkout.")
+            
             .sheet(isPresented: $isSheetPresented, content: {
                 CheckoutView(vm: vm)
             })
     }
 }
-
 
 #Preview {
     CartView(vm: CartViewModel())

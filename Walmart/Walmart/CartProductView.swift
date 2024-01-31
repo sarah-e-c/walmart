@@ -12,7 +12,7 @@ struct CartProductView: View {
     @ObservedObject var vm: CartViewModel
     var body: some View {
         HStack(alignment: .top) {
-            ProductImage(product: product)
+            SmallProductImage(product: product, vm:vm.favoriteViewModel ?? FavoriteViewModel())
             VStack(alignment: .leading) {
                 ProductPriceView(product: product)
                 ProductTitleView(product: product)
@@ -24,14 +24,17 @@ struct CartProductView: View {
                     .padding(.bottom, 3)
                 HStack {
                     Button {
-                        vm.removeFromCart(product: product)
+                        withAnimation{vm.removeFromCart(product: product)}
                     } label: {
                         Image(systemName: "minus.circle.fill")
                     }
                     Text(String(vm.getProductQuantity(product: product)))
                     
                     Button {
-                        vm.addToCart(product: product)
+                        withAnimation {
+                            vm.addToCart(product: product)
+                        }
+                        
                     } label: {
                         Image(systemName: "plus.circle.fill")
                     }

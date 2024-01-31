@@ -30,23 +30,51 @@ struct CheckoutView: View {
                     HStack {
                         if vm.cartSize > 0 {
                             VStack(alignment: .leading) {
-                                
-                                    VStack(alignment: .leading) {
-                                        Text("Total Price: ").font(.title3) +
-                                            Text("$" + String(format: "%.2f", vm.cartPrice))
-                                            .bold()
-                                            .foregroundStyle(Color.discountgreen)
-                                            .font(.title)
-                                        Text("Items: \(vm.cartSize)")
-                                    }.padding()
-                                    
-                                
-                                
+                                VStack(alignment: .leading) {
+                                    Text("Total Price: ").font(.title3).fontWeight(.light) +
+                                        Text("$" + String(format: "%.2f", vm.cartPrice))
+                                        .bold()
+                                        .font(.title3)
+                                        
+                                        
+                                        
+                                    Text("Items: \(vm.cartSize)")
+                                        .fontWeight(.light)
+                                        
+                                }.padding()
+
                                 ForEach(vm.cartItems) { product in
                                     CartProductView(product: product, vm: vm)
                                     Divider()
                                 }
                                 
+                                VStack {
+                                    HStack {
+                                        Text("Items")
+                                        Spacer()
+                                        Text(String(vm.cartSize))
+                                    }
+                                    HStack {
+                                        Text("Subtotal")
+                                        Spacer()
+                                        Text("$\(vm.cartUndiscountedPrice).00")
+                                    }
+                                    HStack {
+                                        Text("Savings")
+                                        Spacer()
+                                        Text("-$" + String(format: "%.2f", vm.positiveCartDiscount))
+                                            .foregroundStyle(Color.discountgreen)
+                                    }
+                                    HStack {
+                                        Text("Total")
+                                        Spacer()
+                                        Text("$" + String(format: "%.2f", vm.cartPrice))
+                                    }
+                                }.padding().border(Color.blue)
+                                    .padding()
+                                    .fontWeight(.light)
+                                
+
                                 Button {
                                     vm.checkoutItems()
                                     dismiss()
@@ -62,15 +90,12 @@ struct CheckoutView: View {
                                     }.background(.blue)
                                         .clipShape(RoundedRectangle(cornerRadius: 25.0))
                                         .padding()
-
                                 }
                             }
 
                         } else {
                             EmptyCartView()
                         }
-
-                        
                     }
                 }
             }
@@ -89,6 +114,7 @@ private struct EmptyCartView: View {
             Image("emptycart")
                 .resizable()
                 .scaledToFit()
+                .accessibilityLabel("Image of a Walmart shopping cart.")
             Text("Time to start Shopping!")
                 .font(.title)
                 .bold()

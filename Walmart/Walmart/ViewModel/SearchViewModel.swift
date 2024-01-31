@@ -12,20 +12,28 @@ class SearchViewModel: ObservableObject {
     @Published var products: [Product]
     @Published var numProducts = 0
     @Published var lastSearchTerm = ""
+    @Published var errorMessage = ""
     
     @ObservedObject var cartViewModel: CartViewModel
+    @ObservedObject var favoriteViewModel: FavoriteViewModel
 
     
-    init(cartViewModel: CartViewModel) {
+    init(cartViewModel: CartViewModel, favoriteViewModel: FavoriteViewModel) {
         self.products = []
         self.cartViewModel = cartViewModel
+        self.favoriteViewModel = favoriteViewModel
+        
+        //injecting the same viewmodel to avoid inconsistency bugs
+        self.cartViewModel.favoriteViewModel = favoriteViewModel
     }
     
     func getProducts(searchTerm: String) async {
+        errorMessage = ""
         var productResult: ProductResult?
         do {
             productResult = try await APIService.shared.getProductData(search: searchTerm)
         } catch {
+            errorMessage = "\(error)"
             print("ERROR", error)
         }
         

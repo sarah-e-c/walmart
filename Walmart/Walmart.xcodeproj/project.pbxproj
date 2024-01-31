@@ -20,13 +20,18 @@
 		F879CC6B2B69456900CDBF5D /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC6A2B69456900CDBF5D /* CartViewModel.swift */; };
 		F879CC702B69518B00CDBF5D /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC6F2B69518B00CDBF5D /* CartView.swift */; };
 		F879CC722B696DBB00CDBF5D /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC712B696DBB00CDBF5D /* CheckoutView.swift */; };
-		F879CC752B69714400CDBF5D /* ProductImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC742B69714400CDBF5D /* ProductImage.swift */; };
+		F879CC752B69714400CDBF5D /* SmallProductImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC742B69714400CDBF5D /* SmallProductImage.swift */; };
 		F879CC772B69717800CDBF5D /* ProductPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC762B69717800CDBF5D /* ProductPriceView.swift */; };
 		F879CC792B6971D100CDBF5D /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC782B6971D100CDBF5D /* StarsView.swift */; };
 		F879CC7B2B69722E00CDBF5D /* ProductTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC7A2B69722E00CDBF5D /* ProductTitleView.swift */; };
 		F879CC7D2B69727A00CDBF5D /* CartProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC7C2B69727A00CDBF5D /* CartProductView.swift */; };
 		F879CC7F2B697E1800CDBF5D /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC7E2B697E1800CDBF5D /* ProductDetailView.swift */; };
 		F879CC822B698DB500CDBF5D /* AddToCartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC812B698DB400CDBF5D /* AddToCartButton.swift */; };
+		F879CC842B699C8800CDBF5D /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC832B699C8800CDBF5D /* FavoriteService.swift */; };
+		F879CC862B69BE7000CDBF5D /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC852B69BE7000CDBF5D /* FavoriteViewModel.swift */; };
+		F879CC892B69C96700CDBF5D /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC882B69C96700CDBF5D /* FavoritesView.swift */; };
+		F879CC8B2B69CB8500CDBF5D /* FavoriteProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC8A2B69CB8500CDBF5D /* FavoriteProductView.swift */; };
+		F879CC8D2B69CD6B00CDBF5D /* WalmartPlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC8C2B69CD6B00CDBF5D /* WalmartPlusView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,13 +50,18 @@
 		F879CC6A2B69456900CDBF5D /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		F879CC6F2B69518B00CDBF5D /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		F879CC712B696DBB00CDBF5D /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
-		F879CC742B69714400CDBF5D /* ProductImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImage.swift; sourceTree = "<group>"; };
+		F879CC742B69714400CDBF5D /* SmallProductImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallProductImage.swift; sourceTree = "<group>"; };
 		F879CC762B69717800CDBF5D /* ProductPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPriceView.swift; sourceTree = "<group>"; };
 		F879CC782B6971D100CDBF5D /* StarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsView.swift; sourceTree = "<group>"; };
 		F879CC7A2B69722E00CDBF5D /* ProductTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTitleView.swift; sourceTree = "<group>"; };
 		F879CC7C2B69727A00CDBF5D /* CartProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProductView.swift; sourceTree = "<group>"; };
 		F879CC7E2B697E1800CDBF5D /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		F879CC812B698DB400CDBF5D /* AddToCartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartButton.swift; sourceTree = "<group>"; };
+		F879CC832B699C8800CDBF5D /* FavoriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
+		F879CC852B69BE7000CDBF5D /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
+		F879CC882B69C96700CDBF5D /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		F879CC8A2B69CB8500CDBF5D /* FavoriteProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProductView.swift; sourceTree = "<group>"; };
+		F879CC8C2B69CD6B00CDBF5D /* WalmartPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalmartPlusView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +119,7 @@
 			children = (
 				F81C8CEC2B684637005713B0 /* APIService.swift */,
 				F81C8CEE2B68480A005713B0 /* Product.swift */,
+				F879CC832B699C8800CDBF5D /* FavoriteService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -116,6 +127,7 @@
 		F81C8CEA2B68460C005713B0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F879CC872B69C95900CDBF5D /* Favorites */,
 				F879CC732B69706300CDBF5D /* Product */,
 				F879CC6E2B69517F00CDBF5D /* Cart */,
 				F879CC652B6893EA00CDBF5D /* Search */,
@@ -129,6 +141,7 @@
 			children = (
 				F81C8CF02B685642005713B0 /* SearchViewModel.swift */,
 				F879CC6A2B69456900CDBF5D /* CartViewModel.swift */,
+				F879CC852B69BE7000CDBF5D /* FavoriteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -155,14 +168,24 @@
 		F879CC732B69706300CDBF5D /* Product */ = {
 			isa = PBXGroup;
 			children = (
-				F879CC742B69714400CDBF5D /* ProductImage.swift */,
+				F879CC742B69714400CDBF5D /* SmallProductImage.swift */,
 				F879CC762B69717800CDBF5D /* ProductPriceView.swift */,
 				F879CC782B6971D100CDBF5D /* StarsView.swift */,
 				F879CC7A2B69722E00CDBF5D /* ProductTitleView.swift */,
 				F879CC7E2B697E1800CDBF5D /* ProductDetailView.swift */,
 				F879CC812B698DB400CDBF5D /* AddToCartButton.swift */,
+				F879CC8C2B69CD6B00CDBF5D /* WalmartPlusView.swift */,
 			);
 			name = Product;
+			sourceTree = "<group>";
+		};
+		F879CC872B69C95900CDBF5D /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				F879CC882B69C96700CDBF5D /* FavoritesView.swift */,
+				F879CC8A2B69CB8500CDBF5D /* FavoriteProductView.swift */,
+			);
+			name = Favorites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,21 +260,26 @@
 			files = (
 				F879CC692B6898BD00CDBF5D /* TabLabel.swift in Sources */,
 				F81C8CF12B685642005713B0 /* SearchViewModel.swift in Sources */,
+				F879CC8B2B69CB8500CDBF5D /* FavoriteProductView.swift in Sources */,
 				F81C8CDC2B6845F0005713B0 /* ContentView.swift in Sources */,
 				F81C8CED2B684637005713B0 /* APIService.swift in Sources */,
 				F879CC722B696DBB00CDBF5D /* CheckoutView.swift in Sources */,
 				F81C8CDA2B6845F0005713B0 /* WalmartApp.swift in Sources */,
 				F879CC772B69717800CDBF5D /* ProductPriceView.swift in Sources */,
+				F879CC842B699C8800CDBF5D /* FavoriteService.swift in Sources */,
 				F879CC7D2B69727A00CDBF5D /* CartProductView.swift in Sources */,
 				F879CC702B69518B00CDBF5D /* CartView.swift in Sources */,
+				F879CC8D2B69CD6B00CDBF5D /* WalmartPlusView.swift in Sources */,
 				F879CC672B6893FA00CDBF5D /* SearchProductView.swift in Sources */,
+				F879CC892B69C96700CDBF5D /* FavoritesView.swift in Sources */,
 				F879CC822B698DB500CDBF5D /* AddToCartButton.swift in Sources */,
 				F879CC792B6971D100CDBF5D /* StarsView.swift in Sources */,
 				F879CC6B2B69456900CDBF5D /* CartViewModel.swift in Sources */,
 				F81C8CF32B685663005713B0 /* SearchView.swift in Sources */,
 				F81C8CEF2B68480A005713B0 /* Product.swift in Sources */,
-				F879CC752B69714400CDBF5D /* ProductImage.swift in Sources */,
+				F879CC752B69714400CDBF5D /* SmallProductImage.swift in Sources */,
 				F879CC7B2B69722E00CDBF5D /* ProductTitleView.swift in Sources */,
+				F879CC862B69BE7000CDBF5D /* FavoriteViewModel.swift in Sources */,
 				F879CC7F2B697E1800CDBF5D /* ProductDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

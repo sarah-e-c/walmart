@@ -12,7 +12,7 @@ struct ProductPriceView: View {
     var body: some View {
         Group {
             if product.discountPercentage > 0 {
-                HStack(alignment: .lastTextBaseline) {
+                HStack(alignment: .lastTextBaseline, spacing: 2) {
                     Text("Now $" + String(format: "%.2f", product.calculateDiscountedPrice()))
                         .font(.headline)
                         .fontWeight(.bold)

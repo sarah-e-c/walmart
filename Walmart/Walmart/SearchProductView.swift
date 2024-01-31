@@ -29,7 +29,7 @@ struct SearchProductView: View {
                 Button {
                     isDetailsPresented.toggle()
                 } label: {
-                    ProductImage(product: product)
+                    SmallProductImage(product: product, vm:vm.favoriteViewModel)
                 }
                 
 
@@ -49,17 +49,7 @@ struct SearchProductView: View {
                         .padding(.bottom, 8)
 
                     // Walmart Plus advertisement
-                    HStack {
-                        Text("Save with")
-                            .font(.caption)
-                            .fontWeight(.bold)
-                            .foregroundStyle(Color.blue)
-                            .padding(.trailing, -4)
-                        Image("walmartpluslogo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 20)
-                    }.padding(.bottom, 2)
+                    WalmartPlusView()
 
                     Text("Free shipping, arrives ")
                         .fontWeight(.light)
@@ -82,8 +72,9 @@ struct SearchProductView: View {
 
 
 #Preview {
-    SearchProductView(product: Product.example, vm: SearchViewModel(cartViewModel: CartViewModel()))
+    SearchProductView(product: Product.example, vm: SearchViewModel(cartViewModel: CartViewModel(), favoriteViewModel: FavoriteViewModel()))
 }
+
 
 
 

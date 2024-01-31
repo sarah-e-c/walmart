@@ -11,6 +11,7 @@ struct ProductDetailView: View {
     let product: Product
     @ObservedObject var cartVM: CartViewModel
     @Environment(\.dismiss) var dismiss
+    @State private var carouselNumber = 0
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack {
@@ -29,6 +30,7 @@ struct ProductDetailView: View {
             ZStack {
                 ScrollView {
                     HStack {
+                        // top row
                         VStack(alignment: .leading) {
                             Text(product.brand)
                                 .font(.caption)
@@ -38,8 +40,17 @@ struct ProductDetailView: View {
                                 .fontWeight(.light)
                         }.padding()
                         Spacer()
+                        ShareLink(item: "www.walmart.com", subject: Text(product.title),
+                                  message: Text("Check out this awesome " + product.title + " from Walmart!"), preview: SharePreview(product.title, image: Image(systemName: "heart")))
+                        {
+                            Image(systemName: "square.and.arrow.up")
+                                .renderingMode(.original)
+                        }
+                        .padding(.horizontal)
                     }
-                    TabView {
+                    // image carousel
+
+                    TabView(selection: $carouselNumber) {
                         ForEach(product.images.reversed(), id: \.self) { imageURL in
                             AsyncImage(url: URL(string: imageURL)) {
                                 image in
@@ -51,18 +62,25 @@ struct ProductDetailView: View {
                             }.accessibilityLabel("Image of" + product.title)
                         }
                     }.tabViewStyle(PageTabViewStyle())
-                        .frame(height: 250)
+                        .frame(height: 250).padding()
 
                     VStack(alignment: .leading) {
                         HStack {
                             ProductPriceView(product: product)
                             StarsView(product: product)
                         }
-
                         Text(product.description)
+                            .padding(.bottom, 4)
+
+//                        Text("Reviews")
+//                            .font(.title2)
+//                            .fontWeight(.light)
                     }.padding()
                 }
-                AbsoluteAddToCartButton(vm: cartVM, product: product)
+                VStack {
+                    Spacer()
+                    AddToCartButton(vm: cartVM, product: product)
+                }.padding()
             }
         }
     }
@@ -70,62 +88,4 @@ struct ProductDetailView: View {
 
 #Preview {
     ProductDetailView(product: Product.example, cartVM: CartViewModel())
-}
-
-private struct AbsoluteAddToCartButton: View {
-    @ObservedObject var vm: CartViewModel
-    let product: Product
-    var body: some View {
-        VStack {
-            Spacer()
-            Group {
-                if vm.getProductQuantity(product: product) == 0 {
-                    Button {
-                        withAnimation {
-                            vm.addToCart(product: product)
-                        }
-                        
-                    } label: {
-                        HStack {
-                            Spacer()
-                            Text("Add to cart")
-                            Spacer()
-                        }
-                        .foregroundStyle(Color.white)
-                        .fontWeight(.heavy)
-                        .padding(12)
-                        .padding(.horizontal)
-                        .background(Color.blue)
-                        .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                    }
-                } else {
-                    HStack {
-                        Button {
-                            withAnimation {
-                                vm.removeFromCart(product: product)
-                            }
-                            
-                        } label: {
-                            Image(systemName: "minus.circle.fill")
-                                
-                        }
-                        Spacer()
-                        Text(String(vm.getProductQuantity(product: product)))
-                        Spacer()
-                        Button {
-                            vm.addToCart(product: product)
-                        } label: {
-                            Image(systemName: "plus.circle.fill")
-                        }
-                    }.foregroundStyle(Color.white)
-                        .fontWeight(.heavy)
-                        .padding(12)
-                        .padding(.horizontal)
-                        .background(Color.blue)
-                        .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                }
-
-            }.padding()
-        }
-    }
 }
