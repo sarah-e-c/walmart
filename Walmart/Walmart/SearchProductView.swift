@@ -62,7 +62,7 @@ struct SearchProductView: View {
                 }
             }.padding()
                 .sheet(isPresented: $isDetailsPresented, content: {
-                    ProductDetailView(product: product, cartVM: vm.cartViewModel)
+                    ProductDetailView(product: product, cartVM: vm.cartViewModel, favoriteVM: vm.favoriteViewModel)
                 })
         }
     }

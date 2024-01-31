@@ -32,7 +32,7 @@ struct FavoriteProductView: View {
 
         }.padding()
             .sheet(isPresented: $isSheetPresented) {
-                ProductDetailView(product: product, cartVM: cartVM)
+                ProductDetailView(product: product, cartVM: cartVM, favoriteVM: favoriteVM)
             }
         
         

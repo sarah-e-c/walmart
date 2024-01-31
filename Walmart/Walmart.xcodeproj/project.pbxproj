@@ -32,6 +32,7 @@
 		F879CC892B69C96700CDBF5D /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC882B69C96700CDBF5D /* FavoritesView.swift */; };
 		F879CC8B2B69CB8500CDBF5D /* FavoriteProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC8A2B69CB8500CDBF5D /* FavoriteProductView.swift */; };
 		F879CC8D2B69CD6B00CDBF5D /* WalmartPlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC8C2B69CD6B00CDBF5D /* WalmartPlusView.swift */; };
+		F879CC8F2B6A001E00CDBF5D /* HeartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC8E2B6A001E00CDBF5D /* HeartButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		F879CC882B69C96700CDBF5D /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		F879CC8A2B69CB8500CDBF5D /* FavoriteProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProductView.swift; sourceTree = "<group>"; };
 		F879CC8C2B69CD6B00CDBF5D /* WalmartPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalmartPlusView.swift; sourceTree = "<group>"; };
+		F879CC8E2B6A001E00CDBF5D /* HeartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				F879CC7E2B697E1800CDBF5D /* ProductDetailView.swift */,
 				F879CC812B698DB400CDBF5D /* AddToCartButton.swift */,
 				F879CC8C2B69CD6B00CDBF5D /* WalmartPlusView.swift */,
+				F879CC8E2B6A001E00CDBF5D /* HeartButton.swift */,
 			);
 			name = Product;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				F81C8CF32B685663005713B0 /* SearchView.swift in Sources */,
 				F81C8CEF2B68480A005713B0 /* Product.swift in Sources */,
 				F879CC752B69714400CDBF5D /* SmallProductImage.swift in Sources */,
+				F879CC8F2B6A001E00CDBF5D /* HeartButton.swift in Sources */,
 				F879CC7B2B69722E00CDBF5D /* ProductTitleView.swift in Sources */,
 				F879CC862B69BE7000CDBF5D /* FavoriteViewModel.swift in Sources */,
 				F879CC7F2B697E1800CDBF5D /* ProductDetailView.swift in Sources */,

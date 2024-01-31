@@ -10,8 +10,10 @@ import SwiftUI
 struct ProductDetailView: View {
     let product: Product
     @ObservedObject var cartVM: CartViewModel
+    @ObservedObject var favoriteVM: FavoriteViewModel
     @Environment(\.dismiss) var dismiss
     @State private var carouselNumber = 0
+    @State private var thumbnailImage: Image? = nil
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack {
@@ -41,7 +43,7 @@ struct ProductDetailView: View {
                         }.padding()
                         Spacer()
                         ShareLink(item: "www.walmart.com", subject: Text(product.title),
-                                  message: Text("Check out this awesome " + product.title + " from Walmart!"), preview: SharePreview(product.title, image: Image(systemName: "heart")))
+                                  message: Text("Check out this awesome " + product.title + " from Walmart!"), preview: SharePreview(product.title, image: thumbnailImage ?? Image(systemName: "question")))
                         {
                             Image(systemName: "square.and.arrow.up")
                                 .renderingMode(.original)
@@ -49,13 +51,14 @@ struct ProductDetailView: View {
                         .padding(.horizontal)
                     }
                     // image carousel
-
-                    TabView(selection: $carouselNumber) {
+                    TabView {
                         ForEach(product.images.reversed(), id: \.self) { imageURL in
                             AsyncImage(url: URL(string: imageURL)) {
                                 image in
+
                                 image.resizable()
                                     .scaledToFit()
+                                    .onAppear { thumbnailImage = image }
 
                             } placeholder: {
                                 ProgressView()
@@ -71,11 +74,29 @@ struct ProductDetailView: View {
                         }
                         Text(product.description)
                             .padding(.bottom, 4)
-
+                        
+                        Button {
+                            withAnimation(.easeInOut) {
+                                if favoriteVM.isProductFavorited(product: product) {
+                                    favoriteVM.removeFavorite(product: product)
+                                } else {
+                                    favoriteVM.favoriteProduct(product: product)
+                                }
+                            }
+                        } label: {
+                            HStack {
+                                Image(systemName: favoriteVM.isProductFavorited(product : product) ? "heart.fill" : "heart")
+                                    .foregroundStyle(favoriteVM.isProductFavorited(product : product) ? Color.red : Color.primary)
+                                Text(favoriteVM.isProductFavorited(product: product) ? "Favorited!" : "Make favorite")
+                            }.buttonStyle(PlainButtonStyle()).padding(12).background(RoundedRectangle(cornerRadius: 25).strokeBorder())
+                                .foregroundStyle(Color.primary)
+                            
+                        }
 //                        Text("Reviews")
 //                            .font(.title2)
 //                            .fontWeight(.light)
                     }.padding()
+                    
                 }
                 VStack {
                     Spacer()
@@ -87,5 +108,5 @@ struct ProductDetailView: View {
 }
 
 #Preview {
-    ProductDetailView(product: Product.example, cartVM: CartViewModel())
+    ProductDetailView(product: Product.example, cartVM: CartViewModel(), favoriteVM: FavoriteViewModel())
 }

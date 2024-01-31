@@ -115,7 +115,7 @@ private struct EmptyCartView: View {
                 .resizable()
                 .scaledToFit()
                 .accessibilityLabel("Image of a Walmart shopping cart.")
-            Text("Time to start Shopping!")
+            Text("Time to start shopping!")
                 .font(.title)
                 .bold()
                 .padding(.bottom, 2)
