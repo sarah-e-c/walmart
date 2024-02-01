@@ -10,7 +10,8 @@ import SwiftUI
 struct SearchProductView: View {
     let product: Product
     @State private var isDetailsPresented = false
-    @ObservedObject var vm: SearchViewModel
+    @ObservedObject var favoriteVM: FavoriteViewModel
+    @ObservedObject var cartVM: CartViewModel
     var body: some View {
         VStack(alignment: .leading) {
             // best seller tag
@@ -19,34 +20,37 @@ struct SearchProductView: View {
                     .font(.caption)
                     .fontWeight(.bold)
                     .foregroundStyle(Color.blue)
-                    .padding(8)
-                    .background(Color.blue.opacity(0.1))
-                    .clipShape(RoundedRectangle(cornerRadius: 5.0))
-                    .padding(.horizontal)
+                    .padding(UIConstants.medPadding)
+                    .background(Color.blue.opacity(0.1), in: .rect(cornerRadius: 5.0))
+                    .padding(.bottom, UIConstants.medPadding)
             }
-            HStack(alignment: .top) {
+            
+            HStack(alignment: .top, spacing: UIConstants.largePadding) {
                 // image and heart Button
                 Button {
                     isDetailsPresented.toggle()
+                    favoriteVM.registerProductView(product: product)
                 } label: {
-                    SmallProductImage(product: product, vm:vm.favoriteViewModel)
-                }
-                
+                    SmallProductImage(product: product, vm: favoriteVM)
+                }.padding(.top, UIConstants.largePadding)
 
                 // product details
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: UIConstants.medPadding) {
                     Text("Sponsored")
                         .font(.caption)
                         .fontWeight(.light)
                         .opacity(0.6)
-                        .padding(.bottom, 2)
-                    
-                    ProductPriceView(product: product)
+                        
 
-                    ProductTitleView(product:  product)
+                    ProductPriceView(product: product)
+                        .padding(.bottom, UIConstants.smallPadding)
+
+                    ProductTitleView(product: product)
+                        .padding(.bottom, UIConstants.smallPadding)
 
                     StarsView(product: product)
-                        .padding(.bottom, 8)
+                        .padding(.bottom, UIConstants.smallPadding)
+                        
 
                     // Walmart Plus advertisement
                     WalmartPlusView()
@@ -57,28 +61,17 @@ struct SearchProductView: View {
                         .font(.caption).bold()
 
                     // add to cart button
-                    AddToCartButton(vm: vm.cartViewModel, product: product, isLarge: false)
-                        .padding(.top, 8)
+                    AddToCartButton(vm: cartVM, product: product, isLarge: false)
+                        .padding(.top, UIConstants.largePadding)
                 }
-            }.padding()
-                .sheet(isPresented: $isDetailsPresented, content: {
-                    ProductDetailView(product: product, cartVM: vm.cartViewModel, favoriteVM: vm.favoriteViewModel)
-                })
-        }
+            }
+            .sheet(isPresented: $isDetailsPresented, content: {
+                ProductDetailView(product: product, cartVM: cartVM, favoriteVM: favoriteVM)
+            })
+        }.padding(.horizontal)
     }
 }
 
-
-
-
 #Preview {
-    SearchProductView(product: Product.example, vm: SearchViewModel(cartViewModel: CartViewModel(), favoriteViewModel: FavoriteViewModel()))
+    SearchProductView(product: Product.example, favoriteVM: FavoriteViewModel(), cartVM: CartViewModel())
 }
-
-
-
-
-
-
-
-

@@ -30,7 +30,7 @@ struct ProductPriceView: View {
                     Spacer()
                 }
             }
-        }.padding(.bottom, 4)
+        }
     }
 }
 

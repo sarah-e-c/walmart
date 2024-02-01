@@ -9,22 +9,44 @@ import Foundation
 import SwiftUI
 
 class SearchViewModel: ObservableObject {
-    @Published var products: [Product]
+    @Published var products: [Product] = []
     @Published var numProducts = 0
     @Published var lastSearchTerm = ""
     @Published var errorMessage = ""
     
-    @ObservedObject var cartViewModel: CartViewModel
-    @ObservedObject var favoriteViewModel: FavoriteViewModel
+    @Published var startPrice: Double? = nil
+    @Published var endPrice: Double? = nil
+    @Published var sortingKey: SortingOptionKey = .none
+    
+    var isFilterEnabled: Bool {
+        return startPrice != nil ||  endPrice != nil || sortingKey != .none
+    }
+    
+    
+    
+    let sortingClosures: [SortingOptionKey: (Product, Product) -> Bool] = [
+        .alphabetical: {$0.title < $1.title},
+        .priceHighToLow: {$0.price > $1.price},
+        .priceLowToHigh: {$0.price < $1.price},
+        .ratingHighToLow: {$0.rating > $1.rating},
+        .ratingLowToHigh: {$0.rating < $1.rating},
+        .none: {$0.rating > $1.rating},
+    ]
+    
 
     
-    init(cartViewModel: CartViewModel, favoriteViewModel: FavoriteViewModel) {
-        self.products = []
-        self.cartViewModel = cartViewModel
-        self.favoriteViewModel = favoriteViewModel
+    func filterAndSortProducts(products: [Product]) {
+        let filteredProducts = products.filter({$0.calculateDiscountedPrice() >= startPrice ?? 0 && $0.calculateDiscountedPrice() <= endPrice ?? Double.infinity })
         
-        //injecting the same viewmodel to avoid inconsistency bugs
-        self.cartViewModel.favoriteViewModel = favoriteViewModel
+        let sortedProducts: [Product]
+        if sortingKey != .none {
+            sortedProducts = filteredProducts.sorted(by: sortingClosures[sortingKey] ?? {$0.price > $1.price})
+        } else {
+            sortedProducts = filteredProducts
+        }
+        
+        self.products = sortedProducts
+        self.numProducts = sortedProducts.count
     }
     
     func getProducts(searchTerm: String) async {
@@ -38,8 +60,8 @@ class SearchViewModel: ObservableObject {
         }
         
         let productResultUnwrapped = productResult ?? ProductResult.empty
-        self.products = productResultUnwrapped.products
-        self.numProducts = productResultUnwrapped.total
+        
+        filterAndSortProducts(products: productResultUnwrapped.products)
         self.lastSearchTerm = searchTerm
     }
     

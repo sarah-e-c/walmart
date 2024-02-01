@@ -53,13 +53,10 @@ struct ProductDetailView: View {
                     // image carousel
                     TabView {
                         ForEach(product.images.reversed(), id: \.self) { imageURL in
-                            AsyncImage(url: URL(string: imageURL)) {
-                                image in
-
+                            AsyncImage(url: URL(string: imageURL)) { image in
                                 image.resizable()
                                     .scaledToFit()
                                     .onAppear { thumbnailImage = image }
-
                             } placeholder: {
                                 ProgressView()
                             }.accessibilityLabel("Image of" + product.title)
@@ -73,8 +70,8 @@ struct ProductDetailView: View {
                             StarsView(product: product)
                         }
                         Text(product.description)
-                            .padding(.bottom, 4)
-                        
+                            .padding(.bottom, UIConstants.smallPadding)
+
                         Button {
                             withAnimation(.easeInOut) {
                                 if favoriteVM.isProductFavorited(product: product) {
@@ -85,18 +82,19 @@ struct ProductDetailView: View {
                             }
                         } label: {
                             HStack {
-                                Image(systemName: favoriteVM.isProductFavorited(product : product) ? "heart.fill" : "heart")
-                                    .foregroundStyle(favoriteVM.isProductFavorited(product : product) ? Color.red : Color.primary)
+                                Image(systemName: favoriteVM.isProductFavorited(product: product) ? "heart.fill" : "heart")
+                                    .foregroundStyle(favoriteVM.isProductFavorited(product: product) ? Color.red : Color.primary)
                                 Text(favoriteVM.isProductFavorited(product: product) ? "Favorited!" : "Make favorite")
-                            }.buttonStyle(PlainButtonStyle()).padding(12).background(RoundedRectangle(cornerRadius: 25).strokeBorder())
+                            }.buttonStyle(PlainButtonStyle())
+                                .padding(UIConstants.largePadding)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 25.0)
+                                        .strokeBorder()
+                                }
                                 .foregroundStyle(Color.primary)
-                            
                         }
-//                        Text("Reviews")
-//                            .font(.title2)
-//                            .fontWeight(.light)
+
                     }.padding()
-                    
                 }
                 VStack {
                     Spacer()

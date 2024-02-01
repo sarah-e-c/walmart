@@ -8,32 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
-    // this is not observed to prevent a rerendering of the cart view
-    var favoriteVM: FavoriteViewModel
-    var cartVM: CartViewModel
-    var searchVM: SearchViewModel
-    init() {
-        favoriteVM = FavoriteViewModel()
-        cartVM = CartViewModel(favoriteViewModel: favoriteVM)
-        searchVM = SearchViewModel(cartViewModel: cartVM, favoriteViewModel: favoriteVM)
-    }
+    var favoriteVM: FavoriteViewModel = FavoriteViewModel()
+    var cartVM: CartViewModel = CartViewModel()
+    var searchVM: SearchViewModel = SearchViewModel()
+    
     var body: some View {
         TabView {
-            Text("Placeholder")
+            Text("Hello, world!")
                 .tabItem {
                     TabLabel("storefront", "Shop")
                 }
             FavoritesView(favoriteVM: favoriteVM, cartVM: cartVM)
                 .tabItem { TabLabel("heart", "My Items") }
-            SearchView(vm: searchVM)
+            SearchView(vm: searchVM, favoriteVM: favoriteVM, cartVM: cartVM)
                 .tabItem {
                     TabLabel("magnifyingglass", "Search")
                 }
-            Text("Placeholder")
+            RecentlyViewedView(favoriteVM: favoriteVM, cartVM: cartVM)
                 .tabItem { TabLabel("circle.grid.2x2", "Services") }
-            Text("Placeholder")
+            RecentlyPurchasedView(favoriteVM: favoriteVM, cartVM: cartVM)
                 .tabItem { TabLabel("person.crop.circle", "Account") }
-        }
+        }.preferredColorScheme(.light)
     }
 }
 

@@ -9,20 +9,18 @@ import SwiftUI
 
 struct WalmartPlusView: View {
     var body: some View {
-        HStack {
+        HStack(spacing: 4) {
             Text("Save with")
                 .font(.caption)
                 .fontWeight(.bold)
                 .foregroundStyle(Color.blue)
-                .padding(.trailing, -4)
             Image("walmartpluslogo")
                 .resizable()
                 .scaledToFit()
                 .frame(height: 20)
-        }.padding(.bottom, 2)
+        }
     }
 }
-
 
 #Preview {
     WalmartPlusView()

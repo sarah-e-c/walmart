@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CheckoutView: View {
     @ObservedObject var vm: CartViewModel
+    @ObservedObject var favoriteVM: FavoriteViewModel
     @Environment(\.dismiss) var dismiss
     var body: some View {
         HStack {
@@ -35,46 +36,21 @@ struct CheckoutView: View {
                                         Text("$" + String(format: "%.2f", vm.cartPrice))
                                         .bold()
                                         .font(.title3)
-                                        
-                                        
-                                        
+
                                     Text("Items: \(vm.cartSize)")
                                         .fontWeight(.light)
-                                        
+
                                 }.padding()
 
                                 ForEach(vm.cartItems) { product in
-                                    CartProductView(product: product, vm: vm)
+                                    CartProductView(product: product, vm: vm, favoriteVM: favoriteVM)
                                     Divider()
                                 }
-                                
-                                VStack {
-                                    HStack {
-                                        Text("Items")
-                                        Spacer()
-                                        Text(String(vm.cartSize))
-                                    }
-                                    HStack {
-                                        Text("Subtotal")
-                                        Spacer()
-                                        Text("$\(vm.cartUndiscountedPrice).00")
-                                    }
-                                    HStack {
-                                        Text("Savings")
-                                        Spacer()
-                                        Text("-$" + String(format: "%.2f", vm.positiveCartDiscount))
-                                            .foregroundStyle(Color.discountgreen)
-                                    }
-                                    HStack {
-                                        Text("Total")
-                                        Spacer()
-                                        Text("$" + String(format: "%.2f", vm.cartPrice))
-                                    }
-                                }.padding().border(Color.blue)
-                                    .padding()
-                                    .fontWeight(.light)
-                                
 
+                                CheckoutSummaryView(vm: vm)
+                                    .padding()
+
+                                // checkout button
                                 Button {
                                     vm.checkoutItems()
                                     dismiss()
@@ -85,12 +61,10 @@ struct CheckoutView: View {
                                             .foregroundStyle(Color.white)
                                             .bold()
                                             .padding()
-                                            .padding(.horizontal)
                                         Spacer()
-                                    }.background(.blue)
-                                        .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                                        .padding()
-                                }
+                                    }.background(.blue, in: .rect(cornerRadius: UIConstants.largeCornerRadius))
+                                        
+                                }.padding()
                             }
 
                         } else {
@@ -104,7 +78,7 @@ struct CheckoutView: View {
 }
 
 #Preview {
-    CheckoutView(vm: CartViewModel())
+    CheckoutView(vm: CartViewModel(), favoriteVM: FavoriteViewModel())
 }
 
 private struct EmptyCartView: View {
@@ -125,5 +99,39 @@ private struct EmptyCartView: View {
                 .padding(.bottom, 6)
             Text("Fill it up with savings from around the app.")
         }
+    }
+}
+
+private struct CheckoutSummaryView: View {
+    @ObservedObject var vm: CartViewModel
+    var body: some View {
+        VStack(spacing: UIConstants.medPadding) {
+            HStack {
+                Text("Items")
+                Spacer()
+                Text(String(vm.cartSize))
+            }
+            HStack {
+                Text("Subtotal")
+                Spacer()
+                Text("$\(vm.cartUndiscountedPrice).00")
+            }
+            HStack {
+                Text("Savings")
+                Spacer()
+                Text("-$" + String(format: "%.2f", vm.positiveCartDiscount))
+                    .foregroundStyle(Color.discountgreen)
+            }
+            HStack {
+                Text("Total")
+                Spacer()
+                Text("$" + String(format: "%.2f", vm.cartPrice))
+            }
+        }.padding()
+            .overlay(
+                RoundedRectangle(cornerRadius: UIConstants.smallCornerRadius)
+                    .stroke(Color.blue)
+            )
+            .fontWeight(.light)
     }
 }

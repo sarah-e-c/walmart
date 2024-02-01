@@ -26,14 +26,14 @@ struct HeartButton: View {
                     Image(systemName: vm.isProductFavorited(product: product) ? "heart.fill" : "heart")
                         .foregroundStyle(vm.isProductFavorited(product: product) ? Color.red : Color.primary)
                         .fontWeight(.light)
-                        .padding(8)
-                        .background()
-                        .clipShape(Circle())
+                        .padding(UIConstants.medPadding)
+                        .background(Color(UIColor.systemBackground), in: .circle)
                 }
             }
         }.accessibilityHint("Favorite this item.").offset(x: 120, y: -15)
     }
 }
+
 #Preview {
     HeartButton(product: Product.example, vm: FavoriteViewModel())
 }

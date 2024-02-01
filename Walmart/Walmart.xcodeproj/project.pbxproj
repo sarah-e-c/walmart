@@ -15,6 +15,9 @@
 		F81C8CEF2B68480A005713B0 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81C8CEE2B68480A005713B0 /* Product.swift */; };
 		F81C8CF12B685642005713B0 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81C8CF02B685642005713B0 /* SearchViewModel.swift */; };
 		F81C8CF32B685663005713B0 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81C8CF22B685663005713B0 /* SearchView.swift */; };
+		F84E9A392B6B022C00181BA1 /* RecentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E9A382B6B022C00181BA1 /* RecentService.swift */; };
+		F84E9A3B2B6B029700181BA1 /* PurchaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E9A3A2B6B029700181BA1 /* PurchaseService.swift */; };
+		F84E9A3D2B6B02EE00181BA1 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E9A3C2B6B02EE00181BA1 /* Purchase.swift */; };
 		F879CC672B6893FA00CDBF5D /* SearchProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC662B6893FA00CDBF5D /* SearchProductView.swift */; };
 		F879CC692B6898BD00CDBF5D /* TabLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC682B6898BD00CDBF5D /* TabLabel.swift */; };
 		F879CC6B2B69456900CDBF5D /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC6A2B69456900CDBF5D /* CartViewModel.swift */; };
@@ -30,9 +33,14 @@
 		F879CC842B699C8800CDBF5D /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC832B699C8800CDBF5D /* FavoriteService.swift */; };
 		F879CC862B69BE7000CDBF5D /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC852B69BE7000CDBF5D /* FavoriteViewModel.swift */; };
 		F879CC892B69C96700CDBF5D /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC882B69C96700CDBF5D /* FavoritesView.swift */; };
-		F879CC8B2B69CB8500CDBF5D /* FavoriteProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC8A2B69CB8500CDBF5D /* FavoriteProductView.swift */; };
+		F879CC8B2B69CB8500CDBF5D /* SavedProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC8A2B69CB8500CDBF5D /* SavedProductView.swift */; };
 		F879CC8D2B69CD6B00CDBF5D /* WalmartPlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC8C2B69CD6B00CDBF5D /* WalmartPlusView.swift */; };
 		F879CC8F2B6A001E00CDBF5D /* HeartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC8E2B6A001E00CDBF5D /* HeartButton.swift */; };
+		F879CC912B6A902100CDBF5D /* FilterOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC902B6A902100CDBF5D /* FilterOptionsView.swift */; };
+		F879CC932B6A90F500CDBF5D /* SortingOptionKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879CC922B6A90F500CDBF5D /* SortingOptionKey.swift */; };
+		F88E12442B6B3890007C834A /* RecentlyViewedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88E12432B6B3890007C834A /* RecentlyViewedView.swift */; };
+		F88E12462B6B3B53007C834A /* RecentlyPurchasedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88E12452B6B3B53007C834A /* RecentlyPurchasedView.swift */; };
+		F88E12482B6B4608007C834A /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88E12472B6B4608007C834A /* UIConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +54,9 @@
 		F81C8CF02B685642005713B0 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		F81C8CF22B685663005713B0 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		F81C8CF42B688F47005713B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F84E9A382B6B022C00181BA1 /* RecentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentService.swift; sourceTree = "<group>"; };
+		F84E9A3A2B6B029700181BA1 /* PurchaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseService.swift; sourceTree = "<group>"; };
+		F84E9A3C2B6B02EE00181BA1 /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		F879CC662B6893FA00CDBF5D /* SearchProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductView.swift; sourceTree = "<group>"; };
 		F879CC682B6898BD00CDBF5D /* TabLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabLabel.swift; sourceTree = "<group>"; };
 		F879CC6A2B69456900CDBF5D /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
@@ -61,9 +72,14 @@
 		F879CC832B699C8800CDBF5D /* FavoriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
 		F879CC852B69BE7000CDBF5D /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		F879CC882B69C96700CDBF5D /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
-		F879CC8A2B69CB8500CDBF5D /* FavoriteProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProductView.swift; sourceTree = "<group>"; };
+		F879CC8A2B69CB8500CDBF5D /* SavedProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProductView.swift; sourceTree = "<group>"; };
 		F879CC8C2B69CD6B00CDBF5D /* WalmartPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalmartPlusView.swift; sourceTree = "<group>"; };
 		F879CC8E2B6A001E00CDBF5D /* HeartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartButton.swift; sourceTree = "<group>"; };
+		F879CC902B6A902100CDBF5D /* FilterOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionsView.swift; sourceTree = "<group>"; };
+		F879CC922B6A90F500CDBF5D /* SortingOptionKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingOptionKey.swift; sourceTree = "<group>"; };
+		F88E12432B6B3890007C834A /* RecentlyViewedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyViewedView.swift; sourceTree = "<group>"; };
+		F88E12452B6B3B53007C834A /* RecentlyPurchasedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPurchasedView.swift; sourceTree = "<group>"; };
+		F88E12472B6B4608007C834A /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +138,9 @@
 				F81C8CEC2B684637005713B0 /* APIService.swift */,
 				F81C8CEE2B68480A005713B0 /* Product.swift */,
 				F879CC832B699C8800CDBF5D /* FavoriteService.swift */,
+				F84E9A382B6B022C00181BA1 /* RecentService.swift */,
+				F84E9A3A2B6B029700181BA1 /* PurchaseService.swift */,
+				F84E9A3C2B6B02EE00181BA1 /* Purchase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -129,11 +148,12 @@
 		F81C8CEA2B68460C005713B0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F879CC872B69C95900CDBF5D /* Favorites */,
+				F879CC872B69C95900CDBF5D /* SavedProducts */,
 				F879CC732B69706300CDBF5D /* Product */,
 				F879CC6E2B69517F00CDBF5D /* Cart */,
 				F879CC652B6893EA00CDBF5D /* Search */,
 				F879CC682B6898BD00CDBF5D /* TabLabel.swift */,
+				F88E12472B6B4608007C834A /* UIConstants.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -144,6 +164,7 @@
 				F81C8CF02B685642005713B0 /* SearchViewModel.swift */,
 				F879CC6A2B69456900CDBF5D /* CartViewModel.swift */,
 				F879CC852B69BE7000CDBF5D /* FavoriteViewModel.swift */,
+				F879CC922B6A90F500CDBF5D /* SortingOptionKey.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -153,6 +174,7 @@
 			children = (
 				F81C8CF22B685663005713B0 /* SearchView.swift */,
 				F879CC662B6893FA00CDBF5D /* SearchProductView.swift */,
+				F879CC902B6A902100CDBF5D /* FilterOptionsView.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -182,13 +204,15 @@
 			name = Product;
 			sourceTree = "<group>";
 		};
-		F879CC872B69C95900CDBF5D /* Favorites */ = {
+		F879CC872B69C95900CDBF5D /* SavedProducts */ = {
 			isa = PBXGroup;
 			children = (
 				F879CC882B69C96700CDBF5D /* FavoritesView.swift */,
-				F879CC8A2B69CB8500CDBF5D /* FavoriteProductView.swift */,
+				F879CC8A2B69CB8500CDBF5D /* SavedProductView.swift */,
+				F88E12432B6B3890007C834A /* RecentlyViewedView.swift */,
+				F88E12452B6B3B53007C834A /* RecentlyPurchasedView.swift */,
 			);
-			name = Favorites;
+			name = SavedProducts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,26 +286,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				F879CC692B6898BD00CDBF5D /* TabLabel.swift in Sources */,
+				F879CC912B6A902100CDBF5D /* FilterOptionsView.swift in Sources */,
+				F84E9A392B6B022C00181BA1 /* RecentService.swift in Sources */,
 				F81C8CF12B685642005713B0 /* SearchViewModel.swift in Sources */,
-				F879CC8B2B69CB8500CDBF5D /* FavoriteProductView.swift in Sources */,
+				F879CC8B2B69CB8500CDBF5D /* SavedProductView.swift in Sources */,
 				F81C8CDC2B6845F0005713B0 /* ContentView.swift in Sources */,
 				F81C8CED2B684637005713B0 /* APIService.swift in Sources */,
+				F88E12482B6B4608007C834A /* UIConstants.swift in Sources */,
 				F879CC722B696DBB00CDBF5D /* CheckoutView.swift in Sources */,
 				F81C8CDA2B6845F0005713B0 /* WalmartApp.swift in Sources */,
 				F879CC772B69717800CDBF5D /* ProductPriceView.swift in Sources */,
+				F88E12442B6B3890007C834A /* RecentlyViewedView.swift in Sources */,
 				F879CC842B699C8800CDBF5D /* FavoriteService.swift in Sources */,
+				F88E12462B6B3B53007C834A /* RecentlyPurchasedView.swift in Sources */,
 				F879CC7D2B69727A00CDBF5D /* CartProductView.swift in Sources */,
 				F879CC702B69518B00CDBF5D /* CartView.swift in Sources */,
+				F84E9A3D2B6B02EE00181BA1 /* Purchase.swift in Sources */,
 				F879CC8D2B69CD6B00CDBF5D /* WalmartPlusView.swift in Sources */,
 				F879CC672B6893FA00CDBF5D /* SearchProductView.swift in Sources */,
 				F879CC892B69C96700CDBF5D /* FavoritesView.swift in Sources */,
 				F879CC822B698DB500CDBF5D /* AddToCartButton.swift in Sources */,
 				F879CC792B6971D100CDBF5D /* StarsView.swift in Sources */,
+				F879CC932B6A90F500CDBF5D /* SortingOptionKey.swift in Sources */,
 				F879CC6B2B69456900CDBF5D /* CartViewModel.swift in Sources */,
 				F81C8CF32B685663005713B0 /* SearchView.swift in Sources */,
 				F81C8CEF2B68480A005713B0 /* Product.swift in Sources */,
 				F879CC752B69714400CDBF5D /* SmallProductImage.swift in Sources */,
 				F879CC8F2B6A001E00CDBF5D /* HeartButton.swift in Sources */,
+				F84E9A3B2B6B029700181BA1 /* PurchaseService.swift in Sources */,
 				F879CC7B2B69722E00CDBF5D /* ProductTitleView.swift in Sources */,
 				F879CC862B69BE7000CDBF5D /* FavoriteViewModel.swift in Sources */,
 				F879CC7F2B697E1800CDBF5D /* ProductDetailView.swift in Sources */,

@@ -26,7 +26,7 @@ struct SmallProductImage: View {
             .accessibilityLabel("Image of" + product.title)
 
             HeartButton(product: product, vm: vm)
-        }.padding(.trailing, 5)
+        }
     }
 }
 

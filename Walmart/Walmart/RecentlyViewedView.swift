@@ -1,20 +1,20 @@
 //
-//  FavoritesView.swift
+//  RecentlyViewedView.swift
 //  Walmart
 //
-//  Created by Sarah Crowder on 1/30/24.
+//  Created by Sarah Crowder on 1/31/24.
 //
 
 import SwiftUI
 
-struct FavoritesView: View {
+struct RecentlyViewedView: View {
     @ObservedObject var favoriteVM: FavoriteViewModel
     @ObservedObject var cartVM: CartViewModel
     var body: some View {
         VStack(spacing: 0) {
-            //toolbar
+            // toolbar
             HStack {
-                Text("My Favorite Products")
+                Text("Recently viewed")
                     .font(.title)
                     .fontWeight(.light)
                     .foregroundStyle(Color.white)
@@ -25,23 +25,19 @@ struct FavoritesView: View {
             .padding(.vertical, UIConstants.largePadding)
             .background(Color.blue)
 
-            if favoriteVM.favorites.isEmpty {
-                NoFavoritesView()
+            if favoriteVM.recents.isEmpty {
+                NoRecentlyViewedView()
             } else {
                 ScrollView {
-                    VStack(alignment: .leading) {
-                        HStack(alignment: .lastTextBaseline) {
-                            Text(favoriteVM.favorites.count > 1 ? "\(favoriteVM.favorites.count) Favorite Products" : "1 Favorite Product")
-                                .font(.title3)
-                                .bold()
-
-                            Spacer()
-                        }
+                    HStack {
                         Text("Price when purchased online  ⓘ")
                             .font(.footnote)
+                        Spacer()
                     }.padding()
-                    ForEach(favoriteVM.getFavoriteProducts()) { product in
+                    
+                    ForEach(favoriteVM.getRecentProducts().reversed()) { product in
                         SavedProductView(product: product, cartVM: cartVM, favoriteVM: favoriteVM)
+                        Divider()
                     }
                 }
             }
@@ -49,22 +45,20 @@ struct FavoritesView: View {
     }
 }
 
-#Preview {
-    FavoritesView(favoriteVM: FavoriteViewModel(), cartVM: CartViewModel())
-}
-
-private struct NoFavoritesView: View {
+private struct NoRecentlyViewedView: View {
     var body: some View {
         VStack {
-            Spacer()
-            Text("You have no favorite products :(")
+            Text("You have no recently viewed products :( ")
                 .font(.title)
-                .bold()
-                .multilineTextAlignment(.center)
                 .padding()
+                .multilineTextAlignment(.center)
             Text("Go shop!")
-                .font(.headline)
             Spacer()
         }
+        
     }
+}
+
+#Preview {
+    RecentlyViewedView(favoriteVM: FavoriteViewModel(), cartVM: CartViewModel())
 }

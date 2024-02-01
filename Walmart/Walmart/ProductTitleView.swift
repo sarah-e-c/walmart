@@ -12,7 +12,7 @@ struct ProductTitleView: View {
     var body: some View {
         Text(product.title)
             .fontWeight(.light)
-            .padding(.bottom, 8)
+            .font(.callout)
     }
 }
 #Preview {

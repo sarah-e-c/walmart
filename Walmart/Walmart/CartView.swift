@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CartView: View {
     @ObservedObject var vm: CartViewModel
+    @ObservedObject var favoriteVM: FavoriteViewModel
     @State private var isSheetPresented = false
     var body: some View {
         Button {
@@ -26,9 +27,10 @@ struct CartView: View {
                             .font(.caption)
                             .foregroundStyle(Color.black)
                             .padding(6)
-                            .background(Circle()
-                                .strokeBorder()
-                                .foregroundStyle(Color.black).background(Color.yellow).clipShape(Circle()))
+                            .background(Color.yellow, in:.circle)
+                            .overlay(
+                                Circle().stroke(Color.black)
+                            )
                             .offset(CGSize(width: 10.0, height: -10.0))
                     }
                     Text("$" + String(format: "%.2f", vm.cartPrice))
@@ -40,11 +42,11 @@ struct CartView: View {
         }.accessibilityHint("Opens a sheet to checkout.")
             
             .sheet(isPresented: $isSheetPresented, content: {
-                CheckoutView(vm: vm)
+                CheckoutView(vm: vm, favoriteVM: favoriteVM)
             })
     }
 }
 
 #Preview {
-    CartView(vm: CartViewModel())
+    CartView(vm: CartViewModel(), favoriteVM: FavoriteViewModel())
 }

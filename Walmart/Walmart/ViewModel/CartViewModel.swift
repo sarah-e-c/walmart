@@ -14,18 +14,18 @@ class CartViewModel: ObservableObject {
     @Published var cartUndiscountedPrice: Int = 0
     @Published var cartItems: [Product] = []
     
-    //positive for easy viewing
-    var positiveCartDiscount: Double { Double(cartUndiscountedPrice) - cartPrice  }
-    
-    var favoriteViewModel: FavoriteViewModel?
+    @Published var purchases: [Purchase] = []
     
     init() {
-        self.favoriteViewModel = nil
+        self.purchases = PurchaseService.shared.loadPurchases()
     }
     
-    init(favoriteViewModel: FavoriteViewModel) {
-        self.favoriteViewModel = favoriteViewModel
+    func getPurchases() -> [Purchase] {
+        return purchases
     }
+    
+    // positive for easy viewing
+    var positiveCartDiscount: Double { Double(cartUndiscountedPrice) - cartPrice }
     
     func getProductQuantity(product: Product) -> Int {
         return cart[product] ?? 0
@@ -61,6 +61,11 @@ class CartViewModel: ObservableObject {
     }
     
     func checkoutItems() {
+        // add current purchase
+        let purchase = Purchase(products: cartItems, date: Date.now)
+        purchases.append(purchase)
+        PurchaseService.shared.savePurchases(purchases: purchases)
+        
         cart = [:]
         cartSize = 0
         cartPrice = 0

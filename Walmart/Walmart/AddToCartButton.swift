@@ -45,7 +45,7 @@ struct AddToCartButton: View {
                         }
                     } label: {
                         Image(systemName: "minus.circle.fill")
-                            
+
                     }.accessibilityHint("Removes" + product.title + "from cart.")
                     Spacer()
                     Text(String(vm.getProductQuantity(product: product)))
@@ -60,14 +60,12 @@ struct AddToCartButton: View {
 
         }.foregroundStyle(Color.white)
             .font(isLarge ? .body : .subheadline)
-            .fontWeight(.heavy)
-            .padding(isLarge ? 12 : 8)
-            .padding(.horizontal)
-            .background(Color.blue)
-            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+            .fontWeight(isLarge ? .heavy : .bold)
+            .padding(isLarge ? UIConstants.largePadding : UIConstants.medPadding)
+            .background(Color.blue, in: .rect(cornerRadius: 25.0))
     }
 }
 
 #Preview {
-    AddToCartButton(vm: CartViewModel(), product: Product.example)
+    AddToCartButton(vm: CartViewModel(), product: Product.example, isLarge: false)
 }
