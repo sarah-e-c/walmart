@@ -146,7 +146,6 @@ private struct ToolBarView: View {
                     .scaledToFit()
                     .frame(height: 27)
                 Text("How do you want your items? | 95829")
-                    .opacity(0.9)
                     .font(.headline)
                     .fontWeight(.light)
                 Spacer()
@@ -189,6 +188,8 @@ private struct ResultsNotFoundView: View {
         }.padding()
     }
 }
+
+
 
 #Preview {
     SearchView(vm: SearchViewModel(), favoriteVM: FavoriteViewModel(), cartVM: CartViewModel())

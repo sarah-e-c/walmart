@@ -113,9 +113,9 @@
 			isa = PBXGroup;
 			children = (
 				F81C8CF42B688F47005713B0 /* Info.plist */,
-				F81C8CEB2B684622005713B0 /* ViewModel */,
-				F81C8CEA2B68460C005713B0 /* View */,
 				F81C8CE92B684606005713B0 /* Model */,
+				F81C8CEA2B68460C005713B0 /* View */,
+				F81C8CEB2B684622005713B0 /* ViewModel */,
 				F81C8CD92B6845F0005713B0 /* WalmartApp.swift */,
 				F81C8CDB2B6845F0005713B0 /* ContentView.swift */,
 				F81C8CDD2B6845F1005713B0 /* Assets.xcassets */,

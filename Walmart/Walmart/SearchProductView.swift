@@ -15,16 +15,14 @@ struct SearchProductView: View {
     var body: some View {
         VStack(alignment: .leading) {
             // best seller tag
-            if product.rating >= 4.4 {
-                Text("Best Seller")
-                    .font(.caption)
-                    .fontWeight(.bold)
-                    .foregroundStyle(Color.blue)
-                    .padding(UIConstants.medPadding)
-                    .background(Color.blue.opacity(0.1), in: .rect(cornerRadius: 5.0))
+            if product.rating >= 4.6 {
+                PopularPickTag()
+                    .padding(.bottom, UIConstants.medPadding)
+            } else if product.rating >= 4.4 {
+                BestSellerTag()
                     .padding(.bottom, UIConstants.medPadding)
             }
-            
+
             HStack(alignment: .top, spacing: UIConstants.largePadding) {
                 // image and heart Button
                 Button {
@@ -40,7 +38,6 @@ struct SearchProductView: View {
                         .font(.caption)
                         .fontWeight(.light)
                         .opacity(0.6)
-                        
 
                     ProductPriceView(product: product)
                         .padding(.bottom, UIConstants.smallPadding)
@@ -50,7 +47,6 @@ struct SearchProductView: View {
 
                     StarsView(product: product)
                         .padding(.bottom, UIConstants.smallPadding)
-                        
 
                     // Walmart Plus advertisement
                     WalmartPlusView()
@@ -69,6 +65,28 @@ struct SearchProductView: View {
                 ProductDetailView(product: product, cartVM: cartVM, favoriteVM: favoriteVM)
             })
         }.padding(.horizontal)
+    }
+}
+
+private struct BestSellerTag: View {
+    var body: some View {
+        Text("Best seller")
+            .font(.caption)
+            .fontWeight(.bold)
+            .foregroundStyle(Color.blue)
+            .padding(UIConstants.medPadding)
+            .background(Color.blue.opacity(0.1), in: .rect(cornerRadius: 5.0))
+    }
+}
+
+private struct PopularPickTag: View {
+    var body: some View {
+        Text("Popular pick")
+            .font(.caption)
+            .fontWeight(.bold)
+            .foregroundStyle(Color.white)
+            .padding(UIConstants.medPadding)
+            .background(Color.popularpickcolor, in: .rect(cornerRadius: 5.0))
     }
 }
 
